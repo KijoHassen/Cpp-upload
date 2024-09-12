@@ -5,7 +5,7 @@ using namespace std;
 int main()
 {
     
-    cout << "Hello, World!"<< endl;
+    cout << "Hello, World!" << endl;
     printf ("你好，世界！\n");
 
 system("pause");
