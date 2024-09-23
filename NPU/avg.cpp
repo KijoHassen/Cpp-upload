@@ -1,14 +1,19 @@
-#include <stdio.h>
 #include <iostream>
-
-int main() {
-    int A, B;
+ 
+int main() 
+{
+    long long  a, b;
+    long long average;
+ 
+    scanf("%lld",&a);
+    scanf("%lld",&b);
+ 
+         
+    average = (a + b) / 2;
+ 
+ 
+    printf("%lld\n",average);
     
-    // 读取输入的两个整数
-    scanf("%d %d", &A, &B);
-    
-    // 计算并输出整型平均值
-    printf("%d\n", (A + B) / 2);
-    
+    system ("pause");
     return 0;
 }
