@@ -3,6 +3,16 @@
 
 int main()
 {
-    printf("Hello world!\n");
+    int a, b;
+    scanf("%d %d", &a, &b);
+
+    if (a > b){
+        printf("%d > %d\n", a, b);
+    }else if (a < b){
+        printf("%d < %d\n", a, b);
+    }else{
+        printf("%d = %d\n", a, b);
+    }
+
     return 0;
 }
