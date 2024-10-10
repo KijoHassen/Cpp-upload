@@ -31,7 +31,7 @@ double Min(double a,double b,double c){
 }
  
 double rgbtoRGB(double a){
-    return a/(255);
+    return a/255;
 }
  
 int main(){
