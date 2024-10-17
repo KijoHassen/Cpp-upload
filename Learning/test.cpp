@@ -1,9 +1,9 @@
-  #include <stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
 int main()
 {
     printf("Hello World!\n");
-    printf("你好, 世界！\n");
-    system("pause");    // 防止运行后自动退出，需头文件stdlib.h
+    printf("你好，世界\n");
+    system("pause");
     return 0;
 }
