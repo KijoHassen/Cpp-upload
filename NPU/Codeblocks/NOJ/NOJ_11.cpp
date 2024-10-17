@@ -1,10 +1,11 @@
-#include <stdio.h>
+#include <iostream>
  
 int sum_of_digits(int n) {
     int sum = 0;
     while (n > 0) {
-        sum += n % 10;
-        n /= 10;
+        sum += n % 10; //取个位给sum
+        n /= 10; //取十位，更新n变成个位数再加入sum中
+        
     }
     return sum;
 }
@@ -19,6 +20,7 @@ int main() {
     }
  
     printf("%d\n", count);
- 
+
+    system ("pause");
     return 0;
 }
