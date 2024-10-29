@@ -7,7 +7,7 @@ int main(){
     printf("Before sorted:\n");
     for(int i=0; i<9; i++)
     {
-        printf("%d ", i);
+        printf("%d ", arr[i]);
     }
     printf("\n");
 
@@ -16,9 +16,9 @@ int main(){
     //每轮对比次数 = 元素个数 - （已）排序轮数 - 1
 
     //总共排序轮数为0~7=8轮
-    for(int i = 0; i < 9 - 1; i++)
+    for(int i = 0; i < 9 - 1; i++) //已总轮数
     {
-        for(int j = 0; j < 9 - i -1, j++)
+        for(int j = 0; j < 9 - i -1; j++) //每轮比对次数
         {
             if(arr[j] > arr[j+1])
             {
@@ -28,6 +28,14 @@ int main(){
             }
         }
     }
+
+    printf("After sorted:\n");
+    for(int i=0; i<9; i++)
+    {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
     system ("pause");
     return 0;
 }
