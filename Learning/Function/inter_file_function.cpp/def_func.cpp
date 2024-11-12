@@ -1,3 +1,5 @@
+#include "declaration.h"
+
 //定义函数
 void swap(int num1, int num2)//不需要返回值
 {
