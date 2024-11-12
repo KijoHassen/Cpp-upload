@@ -1,0 +1,27 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run Single File",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}\\exefile\\${fileBasenameNoExtension}.exe",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "preLaunchTask": "Compile Single File",
+            "externalConsole": true,
+        },
+        {
+            "name": "Run All Files",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}\\exefile\\output.exe",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "preLaunchTask": "Compile All Files",
+            "externalConsole": true,
+        }
+    ]
+    
+}
+
