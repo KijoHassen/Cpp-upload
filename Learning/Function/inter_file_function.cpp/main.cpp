@@ -7,7 +7,7 @@ int main(){
     int num2 = 20;
 
     swap(10,20);
-    printf("%d, %d", num1, num2);
+    printf("%d, %d\n", num1, num2);
 
     system ("pause");
     return 0;
