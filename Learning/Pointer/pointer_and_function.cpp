@@ -1,7 +1,6 @@
 #include <iostream>
 //地址传递
-
-void swap(int *p1, int *p2)
+void swap(int *p1, int *p2)//p1， p2的地址
 {
     int temp = *p1; //解引用交换值
     *p1 = *p2;
