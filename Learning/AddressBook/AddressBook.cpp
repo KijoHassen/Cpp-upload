@@ -106,10 +106,34 @@ void addPerson(Addressbook * abs)
 
 }
 
+//2、显示联系人
+void showPerson(Addressbook * abs)
+{
+    //判断通讯录是否为空
+    if(abs->m_Size == 0)
+    {
+        cout << "当前通讯录为空" << endl;
+    }
+    else
+    {
+        for(int i = 0; i < abs->m_Size; i++)
+        {
+            cout << "姓名：" << abs->personArray[i].m_Name << "\t";
+            cout << "性别：" << abs->personArray[i].m_Sex << "\t";
+            cout << "年龄：" << abs->personArray[i].m_Age << "\t";
+            cout << "电话：" << abs->personArray[i].m_Tel << "\t";
+            cout << "住址：" << abs->personArray[i].m_Addr << endl;
+        }
+    }
+
+    system("pause");
+    system("cls");
+}
 //显示菜单界面
 void showMenu()
 {   cout << "$$$$$$$$$$$$$$$$$$$$$$$$" << endl;
     cout << "$$$$$ 1.添加联系人 $$$$$" << endl;
+    cout << "$$$$$ 2.显示联系人 $$$$$" << endl;
     cout << "$$$$$ 3.删除联系人 $$$$$" << endl;
     cout << "$$$$$ 4.查询联系人 $$$$$" << endl;
     cout << "$$$$$ 5.修改联系人 $$$$$" << endl;
@@ -143,6 +167,7 @@ int main(){
                 addPerson(&abs);//地址传递可以修改实参
                 break;
             case 2://显示联系人
+                showPerson(&abs);
                 break;
             case 3://删除联系人
                 break;
