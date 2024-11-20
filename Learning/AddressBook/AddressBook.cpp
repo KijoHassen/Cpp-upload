@@ -118,10 +118,10 @@ void showPerson(Addressbook * abs)
     {
         for(int i = 0; i < abs->m_Size; i++)
         {
-            cout << "姓名：" << abs->personArray[i].m_Name << "\t";
-            cout << "性别：" << abs->personArray[i].m_Sex << "\t";
-            cout << "年龄：" << abs->personArray[i].m_Age << "\t";
-            cout << "电话：" << abs->personArray[i].m_Tel << "\t";
+            cout << "姓名：" << abs->personArray[i].m_Name << "    ";
+            cout << "性别：" << (abs->personArray[i].m_Sex == 1 ? "男" : "女") << "    ";
+            cout << "年龄：" << abs->personArray[i].m_Age << "    ";
+            cout << "电话：" << abs->personArray[i].m_Tel << "    ";
             cout << "住址：" << abs->personArray[i].m_Addr << endl;
         }
     }
@@ -129,6 +129,128 @@ void showPerson(Addressbook * abs)
     system("pause");
     system("cls");
 }
+
+//*查询联系人是否存在，存在返回数组中具体位置，不存在返回-1
+int isExist(Addressbook * abs, string name)
+{
+    for(int i=0; i<abs->m_Size; i++)
+    {
+        if(abs->personArray[i].m_Name == name)
+        {
+            return i;
+        }
+    }
+    return -1;
+}
+
+//3、删除联系人
+void deletePerson(Addressbook * abs)
+{
+    //检测联系人是否存在
+    cout << "请输入您要删除的联系人姓名：" << endl;
+
+    string name;
+    cin >> name;
+    //ret == -1 查无此人
+    //ret != -1 存在此人
+    int ret = isExist(abs, name);
+
+    if(ret != -1)
+    {
+        for(int i=ret; i<abs->m_Size; i++)
+        {
+            //数据前移
+            abs->personArray[i] = abs->personArray[i+1];
+        }
+        abs->m_Size--;//更新通讯录人员数
+        cout << "删除成功！" << endl;
+    }
+    else
+    {
+        cout << "查无此人！" << endl;
+    }
+
+    system("pause");
+    system("cls");
+}
+
+//4、查找联系人
+void findPerson(Addressbook * abs)
+{
+    cout << "请输入您要查找的联系人姓名" << endl;
+    string name;
+    cin >> name;
+    
+    //判断联系人是否存在
+    int ret = isExist(abs, name);
+
+    if(ret != -1)
+    {
+        cout << "姓名；" << abs->personArray[ret].m_Name << "    " << endl;
+        cout << "性别；" << abs->personArray[ret].m_Sex << "    " << endl;
+        cout << "年龄；" << abs->personArray[ret].m_Age << "    " << endl;
+        cout << "电话；" << abs->personArray[ret].m_Tel << "    " << endl;
+        cout << "住址；" << abs->personArray[ret].m_Addr << "    " << endl;
+    }
+    else
+    {
+        cout << "查无此人！" << endl;
+    }
+
+    system("pause");
+    system("cls");
+}
+
+//5、修改联系人
+void modifyPerson(Addressbook * abs)
+{
+    cout << "请输入您要修改的联系人姓名：" << endl;
+    string name;
+    cin >> name;
+
+    int ret = isExist(abs, name);
+
+    if(ret != -1)
+    {
+        //姓名
+        string name;
+        cout << "请修改姓名：" << endl;
+        cin >> name;
+        abs->personArray[ret].m_Name = name;
+
+        //性别
+        cout << "请修改性别：" << endl;
+        cout << "1 - 男" << endl;
+        cout << "2 - 女" << endl;
+        int sex = 0;
+
+        while(1)
+        {
+            cin >> sex;
+            if(sex == 1 || sex == 2)
+            {
+                abs->personArray[ret].m_Sex = sex;
+                break;//1或2可以退出循环
+            }
+            else
+            {
+                cout << "输入有误，请重新输入！" << endl;
+            }
+        }
+        
+        //年龄
+        cout << "请修改年龄：" << endl;
+        int age = 0;
+        cin >> age;
+        abs->personArray[ret].m_Age = age;
+    }
+    else
+    {
+        cout << "查无此人！" << endl;
+    }
+}
+
+
 //显示菜单界面
 void showMenu()
 {   cout << "$$$$$$$$$$$$$$$$$$$$$$$$" << endl;
@@ -163,28 +285,47 @@ int main(){
             //输入了有效数字
             switch (select)
             {
-            case 1://添加联系人 
-                addPerson(&abs);//地址传递可以修改实参
-                break;
-            case 2://显示联系人
-                showPerson(&abs);
-                break;
-            case 3://删除联系人
-                break;
-            case 4://查询联系人
-                break;
-            case 5://修改联系人
-                break;
-            case 6://清空联系人
-                break;
-            case 0://退出通讯录
-                cout << "欢迎下次使用！" << endl;
-                system("pause");
-                return 0;
-                break;
-            default:
-                cout << "输入有误，请输入有效数字！" <<endl;
-                break;
+                case 1://添加联系人 
+                    addPerson(&abs);//地址传递可以修改实参
+                    break;
+                case 2://显示联系人
+                    showPerson(&abs);
+                    break;
+                case 3://删除联系人
+                {
+                    // 测试段
+                    // cout << "请输入删除联系人姓名：" << endl;
+                    // string name;
+                    // cin >> name;
+
+                    // if(isExist(&abs, name) == -1)
+                    // {
+                    //    cout << "查无此人！" << endl; 
+                    // }
+                    // else
+                    // {
+                    //     cout << "存在" << endl;
+                    // }
+                    deletePerson(&abs);
+                }
+                    break;
+                case 4://查询联系人
+                    findPerson(&abs);
+                    break;
+                case 5://修改联系人
+                    break;
+                case 6://清空联系人
+                    break;
+                case 0://退出通讯录
+                    cout << "欢迎下次使用！" << endl;
+                    system("pause");
+                    return 0;
+                    break;
+                default:
+                    cout << "输入有误，请输入有效数字！" <<endl;
+                    system("pause");
+                    system("cls");
+                    break;
             }
         }
         else
@@ -192,10 +333,10 @@ int main(){
             cin.clear(); // 清除错误状态
             cin.ignore(numeric_limits<streamsize>::max(), '\n'); // 丢弃缓冲区中当前行的所有内容
             cout << "输入有误，请输入数字！" << endl;
+            system("pause");
+            system("cls");
         }
     }
-
-        
 
     system ("pause");
     return 0;
