@@ -54,8 +54,9 @@ void addPerson(Addressbook * abs)
             cin >> sex;
             if(sex == 1 || sex == 2)
             {
+                //1或2可以退出循环
                 abs->personArray[abs->m_Size].m_Sex = sex;
-                break;//1或2可以退出循环
+                break;
             }
             else
             {
@@ -72,7 +73,7 @@ void addPerson(Addressbook * abs)
             cin >> age;
             if(age >= 0 && age <= 150)
             {
-                abs->personArray[abs->m_Size].m_Age = sex;
+                abs->personArray[abs->m_Size].m_Age = age;
                 break;
             }
             else
@@ -162,7 +163,9 @@ void deletePerson(Addressbook * abs)
             //数据前移
             abs->personArray[i] = abs->personArray[i+1];
         }
-        abs->m_Size--;//更新通讯录人员数
+        
+        //更新通讯录人员数
+        abs->m_Size--;
         cout << "删除成功！" << endl;
     }
     else
@@ -186,10 +189,10 @@ void findPerson(Addressbook * abs)
 
     if(ret != -1)
     {
-        cout << "姓名；" << abs->personArray[ret].m_Name << "    " << endl;
-        cout << "性别；" << abs->personArray[ret].m_Sex << "    " << endl;
-        cout << "年龄；" << abs->personArray[ret].m_Age << "    " << endl;
-        cout << "电话；" << abs->personArray[ret].m_Tel << "    " << endl;
+        cout << "姓名；" << abs->personArray[ret].m_Name << "    ";
+        cout << "性别；" << abs->personArray[ret].m_Sex << "    ";
+        cout << "年龄；" << abs->personArray[ret].m_Age << "    ";
+        cout << "电话；" << abs->personArray[ret].m_Tel << "    ";
         cout << "住址；" << abs->personArray[ret].m_Addr << "    " << endl;
     }
     else
@@ -229,8 +232,9 @@ void modifyPerson(Addressbook * abs)
             cin >> sex;
             if(sex == 1 || sex == 2)
             {
+                //1或2可以退出循环
                 abs->personArray[ret].m_Sex = sex;
-                break;//1或2可以退出循环
+                break;
             }
             else
             {
@@ -239,17 +243,56 @@ void modifyPerson(Addressbook * abs)
         }
         
         //年龄
-        cout << "请修改年龄：" << endl;
+        cout << "请修改年龄(0 ~ 150)：" << endl;
         int age = 0;
-        cin >> age;
-        abs->personArray[ret].m_Age = age;
+
+        while(1)
+        {
+            cin >> age;
+            if(age >= 0 && age <= 150)
+            {
+                abs->personArray[ret].m_Age = age;
+                break;
+            }
+            else
+            {
+                cout << "输入有误，请重新输入！" << endl;
+            }
+        }
+
+        //电话
+        cout << "请修改联系电话：" << endl;
+        string tel;
+        cin >> tel;
+        abs->personArray[ret].m_Tel = tel;
+
+        //家庭住址
+        cout << "请修改家庭住址：" << endl;
+        string addr;
+        cin >> addr;
+        abs->personArray[ret].m_Addr = addr;
+
+        cout << "修改成功！" << endl;
+
     }
     else
     {
         cout << "查无此人！" << endl;
     }
+
+    system("pause");
+    system("cls");
 }
 
+//6、清空联系人
+void cleanPerson(Addressbook * abs)
+{
+    abs->m_Size = 0;
+    cout << "通讯录已清空！" << endl;
+
+    system("pause");
+    system("cls");
+}
 
 //显示菜单界面
 void showMenu()
@@ -271,12 +314,13 @@ int main(){
     Addressbook abs;
     //初始化通讯录中当前人员个数
     abs.m_Size = 0;
-
-    int select = 0; //创建 选择输入 的变量
+    //创建 选择输入 的变量
+    int select = 0;
    
     while(1)
     {
-        showMenu(); //调用菜单界面
+        //调用菜单界面
+        showMenu(); 
         cout << "请选择功能：" << endl;
 
         // 验证用户输入是否为有效数字
@@ -313,8 +357,10 @@ int main(){
                     findPerson(&abs);
                     break;
                 case 5://修改联系人
+                    modifyPerson(&abs);
                     break;
                 case 6://清空联系人
+                    cleanPerson(&abs);
                     break;
                 case 0://退出通讯录
                     cout << "欢迎下次使用！" << endl;
@@ -330,8 +376,10 @@ int main(){
         }
         else
         {
-            cin.clear(); // 清除错误状态
-            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // 丢弃缓冲区中当前行的所有内容
+            //清除错误状态
+            cin.clear();
+            //丢弃缓冲区中当前行的所有内容
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
             cout << "输入有误，请输入数字！" << endl;
             system("pause");
             system("cls");
