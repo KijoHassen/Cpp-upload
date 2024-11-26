@@ -163,7 +163,7 @@ void deletePerson(Addressbook * abs)
             //数据前移
             abs->personArray[i] = abs->personArray[i+1];
         }
-        
+            
         //更新通讯录人员数
         abs->m_Size--;
         cout << "删除成功！" << endl;
