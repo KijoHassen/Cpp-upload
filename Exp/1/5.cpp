@@ -1,6 +1,3 @@
-#include<iostream>
-using namespace std;
-
 #include<stdio.h>
 #include<stdlib.h>
 
@@ -9,8 +6,8 @@ using namespace std;
 
 int main(){
     
-    long double money, year, rate;
-    scanf("%llf %llf %llf", &money, &year, &rate);
+    double money, year, rate;
+    scanf("%lf %lf %lf", &money, &year, &rate);
     double interest = money * pow(1 + rate, year) - money;
     printf("interest = %.2f", interest);
 

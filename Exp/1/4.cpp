@@ -25,7 +25,7 @@ int main(){
     double p = 0.125;
     double q = 0.7777777;
 
-    printf("%10.5f,\n%-10.5f\n", p, q);
+    printf("%010.5f,\n%-10.5f\n", p, q);
 
     system("pause");
     return 0;
