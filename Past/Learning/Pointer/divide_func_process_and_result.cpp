@@ -13,7 +13,7 @@ int main(){
     int flag = getRemain(a, b, &res_ap);
 
     //判断状态
-    if(!flag)//fllag为0，非0为真，可以输出
+    if(!flag)//flag为0，非0为真，可以输出
     {
         printf("%d\n", res_ap);
     }
