@@ -5,7 +5,7 @@
 
 double fact(int n);
 
-int main(void){
+int main(void){ //void is unnecessary.
 
     int i;
     double sum;
@@ -15,7 +15,7 @@ int main(void){
         sum = sum + fact(i);//fact是double，sum也需要是double
     }
 
-    printf("1!+2!+3!+...+10!=%lf\n", sum);//double-->%lf
+    printf("1!+2!+3!+...+10!=%lf\n", sum);//%lf is for double.
 
     system("pause");
     return 0;

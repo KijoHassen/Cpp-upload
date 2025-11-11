@@ -19,7 +19,7 @@ int main(){
 int reverse(int number){
 
     int sign = number >= 0 ? 1 : -1;
-    number = abs(number);
+    number = abs(number); //use abs() when including <math.h>
     //number = number >=0 ? number : -number;
     
     int sum = 0;
