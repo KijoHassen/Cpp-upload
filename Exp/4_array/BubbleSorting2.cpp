@@ -2,17 +2,18 @@
 #include<stdlib.h>
 
 int main(){
-    
-    int n, k;
-    scanf("%d %d", &n, &k);
+
+    int n;
+    scanf("%d", &n);
     int arr[n];
     for(int i=0; i<=n-1; i++){ //数组有n个元素，下标从0到n-1。需要输入n次。
         scanf("%d", &arr[i]);
     }
 
     int temp = 0;
-    for(int i=0; i<=k-1; i++){
-        for(int j=0; j<=n-2-i; j++){
+    for(int i=0; i<=n-1; i++){ //共n轮排序
+        //输入n输出完整排序，替换k输出k次排序后的结果
+        for(int j=0; j<=n-2-i; j++){ //i+j=n-2定值，故j<=n-2-i
             if(arr[j] > arr[j+1]){
                 temp = arr[j];
                 arr[j] = arr[j+1];
