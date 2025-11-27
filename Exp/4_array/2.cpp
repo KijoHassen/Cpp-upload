@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
  
-void reverse(int arr[], int n){//int arr[]一个整数数组可以传入数组名，实际上是指向数组首元素的指针
+void reverse(int arr[], int n){
     for(int i=0, j=n-1; i<j; i++, j--){
         int temp = arr[i];
         arr[i] = arr[j];
@@ -18,9 +18,10 @@ int main(){
         scanf("%d", &arr[i]);
     }
 
-    reverse(arr, m);
-    reverse(arr+m, n-m); //arr是指向数组第一个元素的指针。arr+m通过指针算术，向后移动m个元素的位置，指向第m个元素
-    reverse(arr, n);
+    reverse(arr, m);//从第一个元素开始，反转前m个元素
+    reverse(arr+m, n-m); //从第m个元素开始，反转后n-m个元素
+    reverse(arr, n);//反转整个数组
+    //arr是指向数组第一个元素的指针。arr+m通过指针算术，向后移动m个元素的位置，指向第m个元素
 
     for(int i=0; i<n; i++){
         if(i!=0){
