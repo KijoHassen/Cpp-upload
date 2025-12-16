@@ -2,7 +2,7 @@
 #include<stdlib.h>
 
 typedef struct{
-    char name[50];
+    char name[50];//字符数组的名字就是地址，不需要取地址符&
     float base_salary;
     float floting_bonus;
     float expense;
