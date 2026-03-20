@@ -1,3 +1,4 @@
+//有条件的计算行列式
 #include<stdio.h>
 #include<stdlib.h>
 

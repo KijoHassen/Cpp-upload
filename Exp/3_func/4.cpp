@@ -1,3 +1,5 @@
+//对输入的整数数组执行线性查找，找出所有等于给定值 x 的元素下标并输出；
+//没有任何匹配，输出 "Not Found"
 #include<stdio.h>
 #include<stdlib.h>
 #define MAX 100

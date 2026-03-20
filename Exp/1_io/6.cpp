@@ -1,3 +1,4 @@
+//不同数据类型输入输出
 #include<stdio.h>
 #include<stdlib.h>
 

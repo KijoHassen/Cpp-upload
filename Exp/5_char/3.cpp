@@ -1,3 +1,4 @@
+//字符串替换
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>

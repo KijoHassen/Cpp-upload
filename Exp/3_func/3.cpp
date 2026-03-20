@@ -1,3 +1,4 @@
+//计算cos(x)
 #include<stdio.h>
 #include<stdlib.h>
 

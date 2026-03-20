@@ -1,3 +1,4 @@
+//华氏度转摄氏度
 #include<iostream>
 using namespace std;
 

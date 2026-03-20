@@ -1,3 +1,4 @@
+//求平均值
 #include<iostream>
 using namespace std;
 

@@ -1,3 +1,4 @@
+//菱形输出
 #include<stdio.h>
 #include<stdlib.h>
 
@@ -7,7 +8,7 @@
 int main(){
     
     int N;
-    int c;
+    char c;
     scanf("%d %c", &N, &c);
     int n = (int)sqrt((N+1)/2);
     int left = N - (2*n*n - 1);

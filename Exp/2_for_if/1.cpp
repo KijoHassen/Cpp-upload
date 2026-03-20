@@ -1,3 +1,4 @@
+//二次方程求根
 #include<stdio.h>
 #include<stdlib.h>
 

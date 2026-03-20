@@ -1,3 +1,4 @@
+//逆序输出
 #include<stdio.h>
 #include<stdlib.h>
 

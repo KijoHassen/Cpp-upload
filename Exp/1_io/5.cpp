@@ -1,3 +1,4 @@
+//工资计算
 #include<stdio.h>
 #include<stdlib.h>
 

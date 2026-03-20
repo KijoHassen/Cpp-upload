@@ -1,3 +1,4 @@
+//字符串分析
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>

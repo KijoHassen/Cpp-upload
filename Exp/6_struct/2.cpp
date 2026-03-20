@@ -1,3 +1,4 @@
+//学生信息管理
 #include<stdio.h>
 #include<stdlib.h>
 
@@ -17,7 +18,7 @@ int main(){
     double sum = 0.0, aver = 0.0;
     for(int i=0; i<N; i++){
         scanf("%s %s %d",
-            students[i].id,
+            students[i].id,//字符数组的名字就是地址，不需要取地址符&
             students[i].name,
             &students[i].score);
         sum += students[i].score;

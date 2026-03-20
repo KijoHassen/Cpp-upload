@@ -1,3 +1,4 @@
+//循环输出
 #include<stdio.h>
 #include<stdlib.h>
 

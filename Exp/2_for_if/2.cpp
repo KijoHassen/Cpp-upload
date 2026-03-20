@@ -1,3 +1,4 @@
+//水仙花数
 #include<stdio.h>
 #include<stdlib.h>
 

@@ -1,3 +1,4 @@
+//各位数字逆序
 #include<iostream>
 using namespace std;
 
